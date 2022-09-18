@@ -16,6 +16,7 @@ import { RemoveOrderController } from './controllers/order/RemoveOrderController
 import { AddOrderItemController } from './controllers/order/AddOrderItemController';
 import { RemoveOrderItemController } from './controllers/order/RemoveOrderItemController';
 import { SendOrderController } from './controllers/order/SendOrderController';
+import { ListOrderController } from './controllers/order/ListOrderControllers';
 
 const router = Router();
 
@@ -65,5 +66,6 @@ router.patch(
   isAuthenticated,
   new SendOrderController().handle
 );
+router.get('/order', isAuthenticated, new ListOrderController().handle);
 
 export { router };
