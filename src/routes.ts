@@ -3,6 +3,7 @@ import { CreateCategoryController } from './controllers/category/CreateCategoryC
 import { AuthUserController } from './controllers/user/AuthUserController';
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { DetailUserController } from './controllers/user/DetailUserController';
+import { ListCategoryController } from './controllers/category/ListCategoryController';
 
 import { isAuthenticated } from './middlewares/isAuthenticated';
 
@@ -19,5 +20,6 @@ router.post(
   isAuthenticated,
   new CreateCategoryController().handle
 );
+router.get('/category', isAuthenticated, new ListCategoryController().handle);
 
 export { router };
