@@ -17,6 +17,7 @@ import { AddOrderItemController } from './controllers/order/AddOrderItemControll
 import { RemoveOrderItemController } from './controllers/order/RemoveOrderItemController';
 import { SendOrderController } from './controllers/order/SendOrderController';
 import { ListOrderController } from './controllers/order/ListOrderControllers';
+import { DetailOrderController } from './controllers/order/DetailOrderController';
 
 const router = Router();
 
@@ -67,5 +68,10 @@ router.patch(
   new SendOrderController().handle
 );
 router.get('/order', isAuthenticated, new ListOrderController().handle);
+router.get(
+  '/order/:order_id',
+  isAuthenticated,
+  new DetailOrderController().handle
+);
 
 export { router };
