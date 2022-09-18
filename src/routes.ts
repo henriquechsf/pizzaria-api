@@ -15,6 +15,7 @@ import { CreateOrderController } from './controllers/order/CreateOrderController
 import { RemoveOrderController } from './controllers/order/RemoveOrderController';
 import { AddOrderItemController } from './controllers/order/AddOrderItemController';
 import { RemoveOrderItemController } from './controllers/order/RemoveOrderItemController';
+import { SendOrderController } from './controllers/order/SendOrderController';
 
 const router = Router();
 
@@ -58,6 +59,11 @@ router.delete(
   '/order/item/:item_id',
   isAuthenticated,
   new RemoveOrderItemController().handle
+);
+router.patch(
+  '/order/:order_id/send',
+  isAuthenticated,
+  new SendOrderController().handle
 );
 
 export { router };
